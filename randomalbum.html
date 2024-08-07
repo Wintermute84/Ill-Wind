@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Ill Wind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/popups.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        
+    <style>
+      body{
+        background-image: url(thumbnails/cool-background.png);
+        margin: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        font-family: Poppins;
+        color: white;
+      }
+
+      h1{
+        margin-top: 50px;
+        font-family: tiny5;
+      }
+
+      .header {
+        position: fixed;
+        background-color: rgb(53, 53, 56);
+        color: white;
+        display: flex;
+        width: 100%;
+        height:40px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; 
+        user-select: none;
+        z-index: 9999;
+      }
+
+      .div2{
+        display: flex;
+        justify-content: end;
+        flex-shrink: 0;
+      }
+
+      .home-link,.div1 {
+        font-family: tiny5,Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 25px;
+        margin-right: 15px;
+        cursor: pointer;
+        transition:color .3s;
+        flex-shrink: 0;
+      }
+
+      .div1:hover,.home-link:hover{
+        color:rgb(123, 128, 128);
+      }
+
+      .container{
+        width:95%;
+        background: rgb(88,88,93);
+        background: linear-gradient(90deg, rgba(88,88,93,1) 0%, rgba(66,66,66,1) 41%, rgba(107,112,113,1) 100%);
+        border-radius: 8px;
+        border: 3px solid white;
+        max-width: 1000px;
+        margin: 30px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        user-select: none;
+      }
+
+      .album-info{
+        width:98%;
+        background: rgb(103,102,102);
+        background: linear-gradient(90deg, rgba(103,102,102,1) 16%, rgba(71,70,70,1) 36%, rgba(30,30,31,1) 75%);
+        height:300px;
+        border-radius: 8px;
+        margin: 10px 10px;
+        display:flex;
+        align-items: center;
+      }
+
+      .album-image{
+        position: relative;
+        cursor: pointer;
+        width: 200px;
+        height: 200px;
+        min-width: 200px;
+        margin:0 10px;
+        border-radius: 8px;
+        border: 2px solid white;
+        
+      }
+
+      .tooltip{
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        bottom: -30px;
+        text-align: center;
+        color:rgb(0, 0, 0);
+        font-weight: 500;
+        pointer-events: none;
+        transition: all ease-in-out 0.6s;
+      }
+
+      .album-image:hover .tooltip{
+        opacity: 1;
+      }
+
+      .album-art{
+        border-radius: 8px;
+        width:100%;
+        height: 100%;
+        
+      }
+
+      .album-details div{
+        color:white;
+        
+        margin-bottom:2px ;
+        font-family: Poppins;
+      }
+
+      .album-no{
+        font-size: 45px;
+        font-family: poppins;
+        font-weight: 600;
+      }
+
+      .album-title{
+        font-size: 35px;
+      }
+
+      .album-artist{
+        font-size: 30px;
+      }
+
+      .other-info{
+        font-size:20px;
+      }
+
+      h2{
+        text-align: center;
+        text-decoration: underline;
+      }
+
+      .album-review{
+        margin: 10px 10px;
+        background: rgb(40,40,40);
+        background: linear-gradient(90deg, rgba(40,40,40,1) 16%, rgba(34,34,34,1) 36%, rgba(0,0,0,1) 75%);
+        border-radius: 8px;
+      }
+      .album-review p{
+        margin-left: 11px;
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <header class="header">
+      <div class="div1" style="padding-left: 15px;">
+        1001 Albums Project
+      </div>
+      <div class="div2">
+      <div class="home-link">ill Wind</div>
+      <div class="home-link" onclick="opens('home');">Home</div>
+      <div class="home-link" id="openModal1" onclick="popup('openModal1','modal1','closeModal1');">Help</div>
+      <div class="home-link" id="openModal2" onclick="popup('openModal2','modal2','closeModal2');">About</div>
+    </header>
+
+    <h1>Your random album of the day is...</h1>
+
+    <div class="container">
+      <div class="album-info">
+        
+        <div class="album-image">
+          <img id="artwork" class="album-art" src="">
+          <div id="ttip" class="tooltip"></div></button>
+        </div>
+        <div class="album-details">
+          <div id="no" class="album-no"></div>
+          <div id="title" class="album-title"></div>
+          <div id="artist" class="album-artist"></div>
+          <div id="oinfo"class="other-info"></div>
+        </div>
+      </div>
+
+      <div class="album-review">
+        <h2>Review</h2>
+        <div class="ooo"><p>Unknown Pleasures is the debut studio album by the English rock band Joy Division, released on 15 June 1979, by Factory Records. The album was recorded and mixed over three successive weekends at Stockport's Strawberry Studios in April 1979, with producer Martin Hannett contributing a number of unconventional recording techniques to the group's sound.</p>
+          <p>The cover artwork was designed by artist Peter Saville, using a data plot of signals from a radio pulsar. It is the only Joy Division album released during lead singer Ian Curtis's lifetime</p>
+          <p>Factory Records did not release any singles from Unknown Pleasures, and the album did not chart despite the relative success of the group's follow-up single, "Transmission". It has since received sustained critical acclaim as an influential post-punk album, and has been named as one of the best albums of all time by publications such as NME, AllMusic, Select, Rolling Stone, and Spin.</p></div>
+      </div>
+    
+    </div>
+
+    <div class="modal" id="modal1">
+      <div class="modal-inner">
+        <div class="heading">Help</div>
+        <div class="text">
+          <p>Hey there!</p>
+          <p>This is a rough guide on how to use Ill Wind. If you&#8217;re new to the 1001 Albums Challenge or if you don&#8217;t know which category of albums to choose, this guide is for you.</p>
+          <p>Ill Wind is a random album generator that lets you pick a random album to listen to. You can choose albums from three categories. Here&#8217;s a breakdown on what category you should choose depending on your familiarity with these records.</p>
+          <p>1.	Classic 1001 : This category contains 1001 albums as listed in the 2021 edition of Robert Dimery&#8217;s reference book &#8216;1001 Albums You Must Hear Before You Die&#8217;. This list is quite comprehensive and contains some of the most influential, acclaimed popular records ever made between the 1950s and the 2010s. So, if you&#8217;re someone who hasn&#8217;t listened to any of those albums before, this list is for you.</p>
+          <p>2.	Creators 1001 : This category contains 1001 albums handpicked by myself. This list is for people who have listened to a lot of the material in the Classic 1001 and wants something else entirely. This list does not contain any of the artists or albums from the Classic 1001 lineup. This list also has a 1 album per artist rule. However, this list is not as comprehensive as the classic 1001 and will adhere to my tastes and biases.</p>
+          <p>3.	Essentials : This category contains a rotating list of 30 albums based on a particular genre/list that will change every month. This month, I&#8217;ve chosen 30 essential Ambient Albums. This list is mostly beginner friendly and will contain albums that are easy and fun to get into and will hopefully introduce listeners to an entirely new genre of music. </p>
+          <p>Finally, the 1001 albums challenge is a challenge where you listen to a random album every day for 1001 days. Pretty self-explanatory. </p>
+          <p>That&#8217;s about it really. So, pick a category and enjoy your random album of the day! Happy Listening.</p>
+        </div>
+        <button class="close-button" id="closeModal1">Close</button>
+      </div>
+    </div>
+
+    <div class="modal" id="modal2">
+      <div class="modal-inner">
+        <div class="heading">About</div>
+        <div class="text">
+          <p>I don&#8217;t really know what to say. I started Ill Wind somewhere around July this year. It&#8217;s taken up a lot of my time and It&#8217;s been a lot of fun. When I started doing this, I couldn&#8217;t really find any new music at all. Not that there wasn&#8217;t anything good being released at the time. In fact, it&#8217;s been a stellar year for music so far. I&#8217;ve just been so tired all the time that finding and listening to new music just becomes an afterthought most of the time. This really helped rekindle a lot of my love for music again.</p>
+          <p>This project mainly uses vanilla HTML, CSS and JavaScript. If you want to learn those, there are plenty of videos online. I would highly recommend SuperSimpleDev. I think I&#8217;ve used the Lastfm API for the album info and album art.</p>
+          <p>Follow me on these links :</p>
+          <p><a target="_blank" href="https://open.spotify.com/user/4l4nenz1j43jftqkh87k41ljm?si=47741f2ba5b443b1">Spotify</a></p>
+          <p><a target="_blank" href="https://www.last.fm/user/Baked_Potatoes">Lastfm</a></p>
+          <p><a target="_blank" href="https://rateyourmusic.com/~PTA">RYM</a></p>
+          <p><a target="_blank" href="https://boxd.it/7Cfdp">Letterboxd</a></p>
+        </div>
+        <button class="close-button" id="closeModal2">Close</button>
+      </div>
+    </div>
+
+
+
+    <script src="scripts/popups.js"></script>
+    <script src="scripts/redirect.js"></script>
+    <script>
+      console.log(localStorage.getItem('v'));
+       function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+      }
+      
+      let intervalId;
+      function autoPlay(){
+          intervalId = setInterval(function(){
+            album(randomNumber(0,22));}
+            ,10);
+        }
+      const v = localStorage.getItem('v'); 
+      autoPlay();
+      setTimeout(function(){
+        clearInterval(intervalId);
+        album(v);
+      },1000);
+      
+      
+      
+      function album(v){
+        
+        const album = [{no:120,artist:'Weyes Blood',album_name:'Titanic Rising',year:2019,genre:'Chamber Pop',length:'42 mins',tracks:10},
+        {no:420,artist:'Joy Division',album_name:'Unknown Pleasures',year:1979,genre:'Post Punk',length:'40 mins',tracks:10},
+        {no:10,artist:'Radiohead',album_name:'Kid A',year:2000,genre:'Art Rock',length:'47 mins',tracks:10},
+        {no:984,artist:'Sonic Youth',album_name:'Goo',year:1990,genre:'Noise Rock',length:'49 mins',tracks:11},
+        {no:564,artist:'Slowdive',album_name:'Souvlaki',year:1993,genre:'Shoegaze',length:'40 mins',tracks:10},
+        {no:890,artist:'Black Country, New Road',album_name:'Ants From Up There',year:2022,genre:'Chamber Pop',length:'58 mins',tracks:10},
+        {no:154,artist:'MF Doom',album_name:'Mm..Food',year:2004,genre:'Hip Hop',length:'48 mins',tracks:15},
+        {no:752,artist:'Beach House',album_name:'7',year:2018,genre:'Dream Pop',length:'47 mins',tracks:11},
+        {no:120,artist:'Deafheaven',album_name:'Sunbather',year:2013,genre:'Blackgaze',length:'59 mins',tracks:7},
+        {no:124,artist:'Aphex Twin',album_name:'Drukqs',year:2001,genre:'IDM',length:'1hr 40 mins',tracks:30},
+        {no:504,artist:'Massive Attack',album_name:'Mezzanine',year:1998,genre:'Trip Hop',length:'1hr 3 mins',tracks:11},
+        {no:104,artist:'Drive Like Jehu',album_name:'Yank Crime',year:1994,genre:'Post Hardcore',length:'1hr 9 mins',tracks:12},
+        {no:114,artist:'Grouper',album_name:'Alien Observer',year:2011,genre:'Ambient',length:'40 mins',tracks:6},
+        {no:224,artist:'Wilco',album_name:'Yankee Hotel Foxtrot',year:2002,genre:'Contemporary Folk',length:'53 mins',tracks:11},
+        {no:624,artist:'Kate Bush',album_name:'The Kick Inside',year:1978,genre:'Dream Pop',length:'43 mins',tracks:13},
+        {no:134,artist:'King Gizzard and The Lizard Wizard',album_name:`I'm in Your Mind Fuzz`,year:2014,genre:'Psychedelic Rock',length:'42 mins',tracks:10},
+        {no:964,artist:'Natural Snow Buildings',album_name:'Daughters of Darkness',year:2013,genre:'Dark Ambient',length:'7hr 20 mins',tracks:18},
+        {no:774,artist:'Sigur Ros',album_name:'Ágætis Byrjun',year:1998,genre:'Post Rock',length:'1hr 11 mins',tracks:10},
+        {no:714,artist:'Unwound',album_name:'The Future of What',year:1995,genre:'Post Hardcore',length:'1hr',tracks:17},
+        {no:54,artist:'Duster',album_name:'Stratosphere',year:1998,genre:'Slowcore',length:'53 mins',tracks:17},
+        {no:712,artist:'Destroyer',album_name:'Kaputt',year:2011,genre:'Art Pop',length:'50 mins',tracks:9},
+        {no:331,artist:'Björk',album_name:'Post',year:1995,genre:'Art Pop',length:'56 mins',tracks:11}
+
+      ];
+      const album_img = document.getElementById("artwork");
+      const album_nme = document.getElementById("title");
+      const album_artist = document.getElementById("artist");
+      const album_infoss = document.getElementById("oinfo");
+      const album_nos = document.getElementById("no");
+      const ttip = document.getElementById("ttip");
+
+      album_img.src = `albums/${album[v].album_name}.jpg`;
+      album_nme.innerText = album[v].album_name;
+      album_artist.innerText = album[v].artist;
+      album_infoss.innerText = `${album[v].year} ‧ ${album[v].genre} ‧ ${album[v].tracks} songs ‧ ${album[v].length}`
+      album_nos.innerHTML = `${album[v].no}.`;
+      ttip.innerText = `${album[v].album_name}`;
+      }
+
+
+
+
+    </script>
+
+  </body>
+
+</html>

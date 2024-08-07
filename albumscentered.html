@@ -1,0 +1,209 @@
+<html>
+  <head>
+    <title>Ill-Wind - A 1001 Albums Project</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/popups.css">
+    <style>
+   
+  body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.header {
+  background-color: rgb(53, 53, 56);
+  color: white;
+  display: flex;
+  width: 100%;
+  height:40px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; 
+  user-select: none;
+  z-index: 9999;
+}
+
+
+
+.div2{
+  display: flex;
+  justify-content: end;
+  flex-shrink: 0;
+}
+
+.home-link,.div1 {
+  font-family: tiny5,Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition:color .3s;
+  flex-shrink: 0;
+}
+
+
+
+.buttons {
+  background-color: rgb(120, 82, 178);
+  color: white;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 2px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  align-content: center;
+  justify-content:center;
+  user-select: none;
+}
+.div1:hover,.home-link:hover{
+  color:rgb(123, 128, 128);
+}
+.option-button{
+  background-color: rgb(6, 6, 169);
+  color:white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 100%;
+  min-width: 100%;
+  margin-top: 20px;
+  cursor:pointer;
+  font-family: tiny5;
+  font-size: 24px;  
+  border:black 3px solid;
+  transition: background-color 0.6s,margin-bottom 0.6s,margin-top 0.6s,border-color 0.6s,padding 0.6s;
+}
+
+
+
+.option-button:hover{
+  background-color: gray;
+  border-color: white;
+  margin-top:20px;
+  margin-bottom:30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  
+}
+.option{
+  max-width:240px;
+  min-width: 230px;
+  margin-left: 20px;
+  margin-right: 20px;
+  max-height: 800px;
+  display: flex;
+  flex:1;
+  
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  
+}
+
+.album-image{
+  width:100%;
+  height: 400px;
+  max-height: 600px;
+  min-height: 400px;
+}
+
+h1{
+  color:white;
+  font-family: tiny5,Arial, Helvetica, sans-serif;
+  text-align: center; 
+}
+    </style>
+  </head>
+  <body style="margin: 0;
+    background-image: url(thumbnails/cool-background.png);
+    ">
+    <header class="header">
+      <div class="div1" style="padding-left: 15px;">
+        1001 Albums Project
+      </div>
+      <div class="div2">
+      <div class="home-link" onclick="illWind();">ill Wind</div>
+      <div class="home-link" onclick="opens('home');">Home</div>
+      <div class="home-link" id="openModal1" onclick="popup('openModal1','modal1','closeModal1');">Help</div>
+      <div class="home-link" id="openModal2" onclick="popup('openModal2','modal2','closeModal2');">About</div>
+      </div>
+    </header>
+
+    <h1>Choose a category to receive your random album of the day..</h1>
+    <div class="container">
+      <div class="option">
+        <img class="album-image" src="thumbnails/EB41m6f.png">
+        <button class="option-button" onclick="opens('random');
+          ">Classic 1001</button>
+      </div>
+
+      <div class="option">
+        <img class="album-image" src="thumbnails/Brian Eno - Ambient 1 (Music for Airports).jpg">
+        <button class="option-button">Ambient Essentials</button>
+      </div>
+
+      <div class="option">
+        <img class="album-image" src="thumbnails/1_1r4qYOxytnomtiuZsebK9A.jpg">
+        <button class="option-button">Creators 1001</button>
+      </div>  
+    </div>
+
+    <div class="modal" id="modal1">
+      <div class="modal-inner">
+        <div class="heading">Help</div>
+        <div class="text">
+          <p>Hey there!</p>
+          <p>This is a rough guide on how to use Ill Wind. If you&#8217;re new to the 1001 Albums Challenge or if you don&#8217;t know which category of albums to choose, this guide is for you.</p>
+          <p>Ill Wind is a random album generator that lets you pick a random album to listen to. You can choose albums from three categories. Here&#8217;s a breakdown on what category you should choose depending on your familiarity with these records.</p>
+          <p>1.	Classic 1001 : This category contains 1001 albums as listed in the 2021 edition of Robert Dimery&#8217;s reference book &#8216;1001 Albums You Must Hear Before You Die&#8217;. This list is quite comprehensive and contains some of the most influential, acclaimed popular records ever made between the 1950s and the 2010s. So, if you&#8217;re someone who hasn&#8217;t listened to any of those albums before, this list is for you.</p>
+          <p>2.	Creators 1001 : This category contains 1001 albums handpicked by myself. This list is for people who have listened to a lot of the material in the Classic 1001 and wants something else entirely. This list does not contain any of the artists or albums from the Classic 1001 lineup. This list also has a 1 album per artist rule. However, this list is not as comprehensive as the classic 1001 and will adhere to my tastes and biases.</p>
+          <p>3.	Essentials : This category contains a rotating list of 30 albums based on a particular genre/list that will change every month. This month, I&#8217;ve chosen 30 essential Ambient Albums. This list is mostly beginner friendly and will contain albums that are easy and fun to get into and will hopefully introduce listeners to an entirely new genre of music. </p>
+          <p>Finally, the 1001 albums challenge is a challenge where you listen to a random album every day for 1001 days. Pretty self-explanatory. </p>
+          <p>That&#8217;s about it really. So, pick a category and enjoy your random album of the day! Happy Listening.</p>
+        </div>
+        <button class="close-button" id="closeModal1">Close</button>
+      </div>
+    </div>
+
+    <div class="modal" id="modal2">
+      <div class="modal-inner">
+        <div class="heading">About</div>
+        <div class="text">
+          <p>I don&#8217;t really know what to say. I started Ill Wind somewhere around July this year. It&#8217;s taken up a lot of my time and It&#8217;s been a lot of fun. When I started doing this, I couldn&#8217;t really find any new music at all. Not that there wasn&#8217;t anything good being released at the time. In fact, it&#8217;s been a stellar year for music so far. I&#8217;ve just been so tired all the time that finding and listening to new music just becomes an afterthought most of the time. This really helped rekindle a lot of my love for music again.</p>
+          <p>This project mainly uses vanilla HTML, CSS and JavaScript. If you want to learn those, there are plenty of videos online. I would highly recommend SuperSimpleDev. I think I&#8217;ve used the Lastfm API for the album info and album art.</p>
+          <p>Follow me on these links :</p>
+          <p><a target="_blank" href="https://open.spotify.com/user/4l4nenz1j43jftqkh87k41ljm?si=47741f2ba5b443b1">Spotify</a></p>
+          <p><a target="_blank" href="https://www.last.fm/user/Baked_Potatoes">Lastfm</a></p>
+          <p><a target="_blank" href="https://rateyourmusic.com/~PTA">RYM</a></p>
+          <p><a target="_blank" href="https://boxd.it/7Cfdp">Letterboxd</a></p>
+        </div>
+        <button class="close-button" id="closeModal2">Close</button>
+      </div>
+    </div>
+
+
+
+    <script src="scripts/popups.js"></script>
+    <script src="scripts/redirect.js"></script>
+    <script src="scripts/picker.js">
+    </script>
+    <script>localStorage.setItem('v', randomNumber(0,22));
+    console.log(localStorage.getItem('v'));</script>
+  </body>
+</html>

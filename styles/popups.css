@@ -1,0 +1,70 @@
+.modal{
+  color: white;
+  background-color: rgba(0,0,0,0.3);
+  opacity: 0;
+  position: fixed;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  user-select: none;
+  
+}
+
+.modal.open{
+  opacity: 1;
+  z-index: 99999;
+}
+
+.modal-inner{
+  background-color: #240b57;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  text-align: center;
+  width: 790px;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.heading{
+  width: 100%;
+  border-bottom: 2px solid rgb(255, 255, 255);
+  padding-bottom: 7.5px;
+  padding-top: 7.5px;
+  font-family: tiny5;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.text{
+  margin:10px 20px;
+  text-align: left;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+
+}
+
+
+.close-button{
+  margin: 10px;
+  background-color:#280b9d;
+  border: white 2px solid;
+  color: white;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-family: tiny5;
+  transition: background-color 0.3s;
+}
+
+.close-button:hover{
+  background-color: #1f0976;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
