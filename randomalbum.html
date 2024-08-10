@@ -57,7 +57,8 @@
         flex-shrink: 0;
       }
 
-      .div1:hover,.home-link:hover{
+      
+      .div1:hover,.home-link:hover, .link:hover{
         color:rgb(123, 128, 128);
       }
 
@@ -121,6 +122,9 @@
         
       }
 
+      .link{
+        transition:color .3s;      }
+
       .album-details div{
         color:white;
         
@@ -162,6 +166,11 @@
 
       }
 
+      .album-option-text{
+        margin: 0;
+
+      }   
+
     </style>
 
   </head>
@@ -174,7 +183,7 @@
       </div>
       <div class="div2">
       <div class="home-link">ill Wind</div>
-      <div class="home-link" onclick="opens('home');">Home</div>
+      <div class="home-link"><p class="album-option-text"><a href="albumscentered.html" class="link">Home</a></p></div>
       <div class="home-link" id="openModal1" onclick="popup('openModal1','modal1','closeModal1');">Help</div>
       <div class="home-link" id="openModal2" onclick="popup('openModal2','modal2','closeModal2');">About</div>
     </header>

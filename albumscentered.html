@@ -70,7 +70,7 @@
   justify-content:center;
   user-select: none;
 }
-.div1:hover,.home-link:hover{
+.div1:hover,.home-link:hover, .link:hover{
   color:rgb(123, 128, 128);
 }
 .option-button{
@@ -128,6 +128,16 @@ h1{
   font-family: tiny5,Arial, Helvetica, sans-serif;
   text-align: center; 
 }
+
+.album-option-text{
+  margin: 0;
+
+}
+
+.link{
+  transition: color .3s;     
+}
+
     </style>
   </head>
   <body style="margin: 0;
@@ -139,7 +149,7 @@ h1{
       </div>
       <div class="div2">
       <div class="home-link" onclick="illWind();">ill Wind</div>
-      <div class="home-link" onclick="opens('home');">Home</div>
+      <div class="home-link"><p class="album-option-text"><a href="albumscentered.html" class="link">Home</a></p></div>
       <div class="home-link" id="openModal1" onclick="popup('openModal1','modal1','closeModal1');">Help</div>
       <div class="home-link" id="openModal2" onclick="popup('openModal2','modal2','closeModal2');">About</div>
       </div>
@@ -149,8 +159,9 @@ h1{
     <div class="container">
       <div class="option">
         <img class="album-image" src="thumbnails/EB41m6f.png">
-        <button class="option-button" onclick="opens('random');
-          ">Classic 1001</button>
+        <button class="option-button" 
+          ><p class="album-option-text"><a href="randomalbum.html">Classic 1001</a></p>
+        </button>
       </div>
 
       <div class="option">
