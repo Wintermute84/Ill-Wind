@@ -1,12 +1,3 @@
-let count = 0;
-function opens(word){
-  if(word==='home'){
-    window.open("http://127.0.0.1:5500/intro-to-html/albumscentered.html", "_self");
-  }
-  else{
-    window.open("http://127.0.0.1:5500/intro-to-html/randomalbum.html", "_self");
-  }
-}
 
 function illWind(){
   count++;
