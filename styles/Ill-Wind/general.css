@@ -1,0 +1,91 @@
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-image: url(../../thumbnails/cool-background.png);
+}
+
+.buttons {
+  background-color: rgb(120, 82, 178);
+  color: white;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 2px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  align-content: center;
+  justify-content:center;
+  user-select: none;
+}
+
+.option-button{
+  background-color: rgb(6, 6, 169);
+  color:white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 100%;
+  min-width: 100%;
+  margin-top: 20px;
+  cursor:pointer;
+  font-family: tiny5;
+  font-size: 24px;  
+  border:black 3px solid;
+  transition: background-color 0.6s,margin-bottom 0.6s,margin-top 0.6s,border-color 0.6s,padding 0.6s;
+}
+
+
+.option-button:hover{
+  background-color: gray;
+  border-color: white;
+  margin-top:20px;
+  margin-bottom:30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  
+}
+.option{
+  max-width:240px;
+  min-width: 230px;
+  margin-left: 20px;
+  margin-right: 20px;
+  max-height: 800px;
+  display: flex;
+  flex:1;
+  
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  
+}
+
+.album-image{
+  width:100%;
+  height: 400px;
+  max-height: 600px;
+  min-height: 400px;
+}
+
+h1{
+  color:white;
+  font-family: tiny5,Arial, Helvetica, sans-serif;
+  text-align: center; 
+}
+
+.album-option-text{
+  margin: 0;
+
+}
