@@ -117,3 +117,53 @@ h2{
 .overview.after{
   opacity: 1;
 }
+
+.spotify-logo{
+  width:20%;
+}
+
+
+
+.links-container{
+  border:1px solid rgb(255, 255, 255);
+  border-radius: 8px;
+  width: 15%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all ease-in-out 0.6s;
+  margin-left: 50px;
+}
+
+.spotify-logo-container, .listen-here-text-container{
+  display: flex;
+  padding:5px 0;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.spotify-logo-container a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listen-here-text{
+  margin: 0;
+  text-align: center;
+}
+
+
+.listen-here-text:hover {
+  color:rgb(192, 192, 187);
+  transition: all ease-in-out 0.1s;
+}
+
+.spotify-logo-container{
+  border-bottom: 1px solid rgb(255, 237, 237);
+}
+
+.links-container.after{
+  opacity: 1;
+  pointer-events: initial;
+}
