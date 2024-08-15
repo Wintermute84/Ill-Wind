@@ -20,7 +20,7 @@
         1001 Albums Project
       </div>
       <div class="div2">
-      <div class="home-link">ill Wind</div>
+      <div class="home-link js-ill-wind">ill Wind</div>
       <div class="home-link"><p class="album-option-text"><a href="albumscentered.html" class="link">Home</a></p></div>
       <div class="home-link  js-modal-links" id="openModal1" data-modal-id="1">Help</div>
       <div class="home-link  js-modal-links" id="openModal2" data-modal-id="2">About</div>
@@ -45,9 +45,7 @@
 
       <div class="album-review">
         <h2>Review</h2>
-        <div class="ooo"><p>Unknown Pleasures is the debut studio album by the English rock band Joy Division, released on 15 June 1979, by Factory Records. The album was recorded and mixed over three successive weekends at Stockport's Strawberry Studios in April 1979, with producer Martin Hannett contributing a number of unconventional recording techniques to the group's sound.</p>
-          <p>The cover artwork was designed by artist Peter Saville, using a data plot of signals from a radio pulsar. It is the only Joy Division album released during lead singer Ian Curtis's lifetime</p>
-          <p>Factory Records did not release any singles from Unknown Pleasures, and the album did not chart despite the relative success of the group's follow-up single, "Transmission". It has since received sustained critical acclaim as an influential post-punk album, and has been named as one of the best albums of all time by publications such as NME, AllMusic, Select, Rolling Stone, and Spin.</p></div>
+        <div class="overview"></div>
       </div>
     
     </div>
@@ -58,73 +56,8 @@
 
 
 
-    <script src="scripts/popups.js"></script>
-    <script src="scripts/redirect.js"></script>
-    <script>
-      console.log(localStorage.getItem('v'));
-       function randomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min) + min);
-      }
-      
-      let intervalId;
-      function autoPlay(){
-          intervalId = setInterval(function(){
-            album(randomNumber(0,22));}
-            ,10);
-        }
-      const v = localStorage.getItem('v'); 
-      autoPlay();
-      setTimeout(function(){
-        clearInterval(intervalId);
-        album(v);
-      },1000);
-      
-      
-      
-      function album(v){
-        const album = [{no:120,artist:'Weyes Blood',album_name:'Titanic Rising',year:2019,genre:'Chamber Pop',length:'42 mins',tracks:10},
-        {no:420,artist:'Joy Division',album_name:'Unknown Pleasures',year:1979,genre:'Post Punk',length:'40 mins',tracks:10},
-        {no:10,artist:'Radiohead',album_name:'Kid A',year:2000,genre:'Art Rock',length:'47 mins',tracks:10},
-        {no:984,artist:'Sonic Youth',album_name:'Goo',year:1990,genre:'Noise Rock',length:'49 mins',tracks:11},
-        {no:564,artist:'Slowdive',album_name:'Souvlaki',year:1993,genre:'Shoegaze',length:'40 mins',tracks:10},
-        {no:890,artist:'Black Country, New Road',album_name:'Ants From Up There',year:2022,genre:'Chamber Pop',length:'58 mins',tracks:10},
-        {no:154,artist:'MF Doom',album_name:'Mm..Food',year:2004,genre:'Hip Hop',length:'48 mins',tracks:15},
-        {no:752,artist:'Beach House',album_name:'7',year:2018,genre:'Dream Pop',length:'47 mins',tracks:11},
-        {no:120,artist:'Deafheaven',album_name:'Sunbather',year:2013,genre:'Blackgaze',length:'59 mins',tracks:7},
-        {no:124,artist:'Aphex Twin',album_name:'Drukqs',year:2001,genre:'IDM',length:'1hr 40 mins',tracks:30},
-        {no:504,artist:'Massive Attack',album_name:'Mezzanine',year:1998,genre:'Trip Hop',length:'1hr 3 mins',tracks:11},
-        {no:104,artist:'Drive Like Jehu',album_name:'Yank Crime',year:1994,genre:'Post Hardcore',length:'1hr 9 mins',tracks:12},
-        {no:114,artist:'Grouper',album_name:'Alien Observer',year:2011,genre:'Ambient',length:'40 mins',tracks:6},
-        {no:224,artist:'Wilco',album_name:'Yankee Hotel Foxtrot',year:2002,genre:'Contemporary Folk',length:'53 mins',tracks:11},
-        {no:624,artist:'Kate Bush',album_name:'The Kick Inside',year:1978,genre:'Dream Pop',length:'43 mins',tracks:13},
-        {no:134,artist:'King Gizzard and The Lizard Wizard',album_name:`I'm in Your Mind Fuzz`,year:2014,genre:'Psychedelic Rock',length:'42 mins',tracks:10},
-        {no:964,artist:'Natural Snow Buildings',album_name:'Daughters of Darkness',year:2013,genre:'Dark Ambient',length:'7hr 20 mins',tracks:18},
-        {no:774,artist:'Sigur Ros',album_name:'Ágætis Byrjun',year:1998,genre:'Post Rock',length:'1hr 11 mins',tracks:10},
-        {no:714,artist:'Unwound',album_name:'The Future of What',year:1995,genre:'Post Hardcore',length:'1hr',tracks:17},
-        {no:54,artist:'Duster',album_name:'Stratosphere',year:1998,genre:'Slowcore',length:'53 mins',tracks:17},
-        {no:712,artist:'Destroyer',album_name:'Kaputt',year:2011,genre:'Art Pop',length:'50 mins',tracks:9},
-        {no:331,artist:'Björk',album_name:'Post',year:1995,genre:'Art Pop',length:'56 mins',tracks:11}
-
-      ];
-      const album_img = document.getElementById("artwork");
-      const album_nme = document.getElementById("title");
-      const album_artist = document.getElementById("artist");
-      const album_infoss = document.getElementById("oinfo");
-      const album_nos = document.getElementById("no");
-      const ttip = document.getElementById("ttip");
-
-      album_img.src = `albums/${album[v].album_name}.jpg`;
-      album_nme.innerText = album[v].album_name;
-      album_artist.innerText = album[v].artist;
-      album_infoss.innerText = `${album[v].year} ‧ ${album[v].genre} ‧ ${album[v].tracks} songs ‧ ${album[v].length}`
-      album_nos.innerHTML = `${album[v].no}.`;
-      ttip.innerText = `${album[v].album_name}`;
-      }
-
-
-
-
-    </script>
+    <script src="scripts/illwind.js" type="module"></script>
+    <script type="module" src="scripts/album.js"></script>
 
   </body>
 

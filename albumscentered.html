@@ -14,7 +14,7 @@
         1001 Albums Project
       </div>
       <div class="div2">
-      <div class="home-link" onclick="illWind();">ill Wind</div>
+      <div class="home-link js-ill-wind">ill Wind</div>
       <div class="home-link"><p class="album-option-text"><a href="albumscentered.html" class="link">Home</a></p></div>
       <div class="home-link js-modal-links" data-modal-id="1">Help</div>
       <div class="home-link js-modal-links" data-modal-id="2">About</div>
@@ -25,19 +25,23 @@
     <div class="container">
       <div class="option">
         <img class="album-image" src="thumbnails/EB41m6f.png">
-        <button class="option-button" 
-          ><p class="album-option-text"><a href="randomalbum.html">Classic 1001</a></p>
+        <button class="option-button js-album-options" data-option-id="1">
+          <p class="album-option-text"><a href="randomalbum.html">Classic 1001</a></p>
         </button>
       </div>
 
       <div class="option">
         <img class="album-image" src="thumbnails/Brian Eno - Ambient 1 (Music for Airports).jpg">
-        <button class="option-button">Ambient Essentials</button>
+        <button class="option-button js-album-options" data-option-id="3">
+          <p class="album-option-text"><a href="randomalbum.html">Ambient Essentials</a>
+        </button>
       </div>
 
       <div class="option">
         <img class="album-image" src="thumbnails/1_1r4qYOxytnomtiuZsebK9A.jpg">
-        <button class="option-button">Creators 1001</button>
+        <button class="option-button js-album-options" data-option-id="2">
+          <p class="album-option-text"><a href="randomalbum.html">Creators 1001</a>
+        </button>
       </div>  
     </div>
 
@@ -46,12 +50,9 @@
     </div>
 
 
-
-    <script src="scripts/popups.js"></script>
-    <script src="scripts/redirect.js"></script>
-    <script src="scripts/picker.js">
-    </script>
-    <script>localStorage.setItem('v', randomNumber(0,22));
-    console.log(localStorage.getItem('v'));</script>
+    <script src="scripts/illwind.js" type="module"></script>
+    <!--<script src="scripts/picker.js"></script>
+    <script>
+    console.log(localStorage.getItem('v'));</script>-->
   </body>
 </html>

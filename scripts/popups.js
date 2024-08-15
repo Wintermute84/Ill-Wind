@@ -1,4 +1,4 @@
-function renderPopups(){
+export function renderPopups(){
   document.querySelectorAll('.js-modal-links').forEach((modalLink)=>{
     modalLink.addEventListener('click',()=>{
       const modalType = modalLink.dataset.modalId;
@@ -47,6 +47,6 @@ function renderPopups(){
 
 
 
-renderPopups();
+
 
 
