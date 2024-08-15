@@ -19,7 +19,7 @@ document.querySelectorAll('.js-album-options').forEach((button)=>{
       if (optionId === option.id){
         matchingOption = option;
         localStorage.setItem('option',JSON.stringify(matchingOption));
-        localStorage.setItem('v', randomNumber(0,22));
+        localStorage.setItem('v', randomNumber(matchingOption.min,matchingOption.max));
       }
     });
   });

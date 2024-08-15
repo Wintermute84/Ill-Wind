@@ -9,6 +9,7 @@
   align-items: center; 
   user-select: none;
   z-index: 9999;
+  position: fixed;
 }
 
 .div2{
