@@ -90,7 +90,7 @@ h1{
 
 }
 
-@media(width<600px){
+@media(width<900px){
   .container{
     flex-direction: column;
   }

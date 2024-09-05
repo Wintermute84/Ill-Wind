@@ -20,7 +20,7 @@
   border-radius: 8px;
   margin: 10px 10px;
   display:flex;
-  align-items: center;
+  align-items:center;
 }
 
 .album-image{
@@ -33,12 +33,12 @@
   margin:0 10px;
   border-radius: 8px;
   border: 2px solid white;
-  transition: width ease-in-out 0.3s, height ease-in-out 0.3s;
 }
 
 .album-details{
   display: inline;
   max-width: 530px;
+  vertical-align: top;
 }
 
 .album-art{
@@ -160,11 +160,9 @@ h2{
 }
 
 
-@media(width<600px){
+@media(width<900px){
   .album-info{
-    display:flex;
     flex-direction: column;
-    align-items:center;
     justify-content: space-between;
   }
   
@@ -173,17 +171,11 @@ h2{
   }
 
   .album-image{
-    cursor: pointer;
     margin:5px 20px;
-    border-radius: 8px;
-    border: 2px solid white;
-    transition: width ease-in-out 0.3s, height ease-in-out 0.3s;
   }
 
   .album-no{
     font-size: 33px;
-    font-family: poppins;
-    font-weight: 600;
   }
   
   .album-title{
@@ -220,3 +212,5 @@ h2{
   
 
 }
+
+
