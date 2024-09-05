@@ -14,9 +14,9 @@
 
 .album-info{
   width:98%;
+  padding: 45px 0;
   background: rgb(103,102,102);
   background: linear-gradient(90deg, rgba(103,102,102,1) 16%, rgba(71,70,70,1) 36%, rgba(30,30,31,1) 75%);
-  height:320px;
   border-radius: 8px;
   margin: 10px 10px;
   display:flex;
@@ -36,26 +36,9 @@
   transition: width ease-in-out 0.3s, height ease-in-out 0.3s;
 }
 
-.album-image:hover{
-  width: 210px;
-  height: 210px;
-}
-
-.tooltip{
-  position: absolute;
-  width: 100%;
-  opacity: 0;
-  bottom: auto;
-  text-align: center;
-  color:rgb(0, 0, 0);
-  font-weight: 500;
-  pointer-events: none;
-  transition: all ease-in-out 0.4s;
-  text-wrap:wrap;
-}
-
-.album-image:hover .tooltip{
-  opacity: 1;
+.album-details{
+  display: inline;
+  max-width: 530px;
 }
 
 .album-art{
@@ -174,4 +157,66 @@ h2{
 .links-container.after{
   opacity: 1;
   pointer-events: initial;
+}
+
+
+@media(width<600px){
+  .album-info{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-between;
+  }
+  
+  .album-details{
+    margin-bottom: 15px;
+  }
+
+  .album-image{
+    cursor: pointer;
+    margin:5px 20px;
+    border-radius: 8px;
+    border: 2px solid white;
+    transition: width ease-in-out 0.3s, height ease-in-out 0.3s;
+  }
+
+  .album-no{
+    font-size: 33px;
+    font-family: poppins;
+    font-weight: 600;
+  }
+  
+  .album-title{
+    font-size: 28px;
+  }
+  
+  .album-artist{
+    font-size: 24px;
+  }
+  
+  .other-info{
+    font-size:20px;
+  }
+
+  .spotify-logo{
+    width: 50%;
+    border: 2px solid white;
+    border-radius: 10%;
+    background-color: black;
+  }
+
+  .links-container{
+    border: none;
+  }
+
+  .spotify-logo-container{
+    border:none;
+  }
+  .listen-here-text-container{
+    display: none;
+    cursor: none;
+    border: none;
+  }
+  
+
 }

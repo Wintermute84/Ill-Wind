@@ -35,3 +35,10 @@
 .link{
   transition: color .3s;     
 }
+
+@media(width<600px){
+  .home-link,.div1 {
+    font-size: 20px;
+  }
+
+}
