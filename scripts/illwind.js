@@ -1,6 +1,7 @@
 import { illWind } from "./redirect.js";
 import { renderPopups } from "./popups.js";
-import { options, randomNumber } from "./picker.js";
+import { randomNumber } from "./picker.js";
+import { options } from "./lists.js";
 
 let count=0;
 document.querySelector('.js-ill-wind').addEventListener('click',
