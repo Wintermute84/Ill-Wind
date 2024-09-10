@@ -230,7 +230,14 @@ export function renderAlbum(){
     const list = option.list;
     const v = localStorage.getItem('v');
     const overview = document.querySelector('.overview');
+    const album_nme = document.getElementById("title");
+    const album_artist = document.getElementById("artist");
+    const album_infoss = document.getElementById("oinfo");
+    album_nme.innerText = list[v].album_name;
+    album_artist.innerText = list[v].artist;
+    album_infoss.innerText = `${list[v].year} ‧ ${list[v].genre} ‧ ${list[v].tracks} songs ‧ ${list[v].length}`
     overview.innerHTML = list[v].review;
+
     document.querySelectorAll('.js-album-link').forEach(function(anchor) {
       anchor.href = list[v].link;
     });
@@ -256,18 +263,14 @@ export function renderAlbum(){
       
       function pickAlbum(list,v){
       const album_img = document.getElementById("artwork");
-      const album_nme = document.getElementById("title");
-      const album_artist = document.getElementById("artist");
-      const album_infoss = document.getElementById("oinfo");
       const album_nos = document.getElementById("no");
       album_img.src = `albums/${list[v].album_name}.jpg`;
-      album_nme.innerText = list[v].album_name;
-      album_artist.innerText = list[v].artist;
-      album_infoss.innerText = `${list[v].year} ‧ ${list[v].genre} ‧ ${list[v].tracks} songs ‧ ${list[v].length}`
       album_nos.innerHTML = `${list[v].no}.`;
       
       setTimeout(()=>{
-        document.querySelector('.overview').classList.add('after');
+        document.querySelectorAll('.album-other-infos').forEach((item)=>{
+          item.classList.add('after');
+        });
         document.querySelector('.links-container').classList.add('after');
       },1100);
       
