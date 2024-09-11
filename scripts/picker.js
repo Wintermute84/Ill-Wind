@@ -53,7 +53,7 @@ export function renderAlbum(){
           item.classList.add('after');
         });
         document.querySelector('.links-container').classList.add('after');
-      },1100);
+      },1200);
       
       }
 
