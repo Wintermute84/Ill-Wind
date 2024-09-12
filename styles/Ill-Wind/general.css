@@ -56,6 +56,11 @@ body{
   padding-bottom: 15px;
   
 }
+
+.album-thumbnail{
+  border: rgb(255, 255, 255) 3px solid;
+}
+
 .option{
   max-width:240px;
   min-width: 230px;
