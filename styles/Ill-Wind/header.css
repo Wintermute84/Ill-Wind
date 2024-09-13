@@ -42,3 +42,19 @@
   }
 
 }
+
+@media(width<450px){
+  .home-link,.div1 {
+    font-size: 16px;
+  }
+
+  h1{
+    font-size: 24px;
+  }
+}
+
+@media(width<370px){
+  .home-link,.div1 {
+    font-size: 13px;
+  }
+}
