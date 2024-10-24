@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Ill-Wind - A 1001 Albums Project</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/Ill-Wind/popups.css">
+    <link rel="stylesheet" href="styles/Ill-Wind/general.css">
+    <link rel="stylesheet" href="styles/Ill-Wind/header.css">
+  </head>
+  <body >
+    <header class="header">
+      <div class="div1" style="padding-left: 15px;">
+        <p class="album-option-text">
+          <a href="https://github.com/Wintermute84/Ill-Wind" class="link" target="_blank">
+              1001 Albums Project
+          </a>
+        </p>
+      </div>
+      <div class="div2">
+      <div class="home-link js-ill-wind">ill Wind</div>
+      <div class="home-link"><p class="album-option-text"><a href="index.html" class="link">Home</a></p></div>
+      <div class="home-link js-modal-links" data-modal-id="1">Help</div>
+      <div class="home-link js-modal-links" data-modal-id="2">About</div>
+      </div>
+    </header>
+
+    <h1>Choose a category to receive your random album of the day..</h1>
+    <div class="container">
+      <div class="option">
+        <img class="album-image album-thumbnail" src="thumbnails/EB41m6f.png">
+        <button class="option-button js-album-options" data-option-id="1" onclick="document.location='randomalbum.html'">
+          Classic 1001
+        </button>
+      </div>
+
+      <div class="option">
+        <img class="album-image album-thumbnail" src="thumbnails/Brian Eno - Ambient 1 (Music for Airports).jpg">
+        <button class="option-button js-album-options" data-option-id="3" onclick="document.location='randomalbum.html'">
+          Ambient Essentials
+        </button>
+      </div>
+
+      <div class="option">
+        <img class="album-image album-thumbnail" src="thumbnails/c5f99f36acb8501008751ed294947a9e.jpg">
+        <button class="option-button js-album-options" data-option-id="2" onclick="document.location='randomalbum.html'">
+          Creators 1001
+        </button>
+      </div>  
+    </div>
+
+    <div class="modal">
+      
+    </div>
+
+
+    <script src="scripts/illwind.js" type="module"></script>
+  </body>
+</html>
