@@ -2,7 +2,14 @@ export function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+const images = ["albums/7.webp", "albums/The Kick Inside.webp", "albums/The Future of What.webp", "albums/Drukqs.webp", "albums/Dummy.webp"];
+const preloadedImages = [];
 
+images.forEach((image) => {
+  const img = new Image();
+  img.src = image;
+  preloadedImages.push(img);
+});
 
 export function renderAlbum(){
     let option = JSON.parse(localStorage.getItem('option'));
@@ -26,7 +33,7 @@ export function renderAlbum(){
       let intervalId;
       function autoPlay(){
           intervalId = setInterval(function(){
-            pickAlbum(list,randomNumber(min,max));}
+            pickAlbum(list,randomNumber(0,5));}
             ,10);
         }
 
@@ -35,7 +42,7 @@ export function renderAlbum(){
       autoPlay();
       setTimeout(()=>{
         clearInterval(intervalId);
-        pickAlbum(list,v);
+        pickAlbum(0,5);
       },1000);
       
 
@@ -45,7 +52,7 @@ export function renderAlbum(){
       function pickAlbum(list,v){
       const album_img = document.getElementById("artwork");
       const album_nos = document.getElementById("no");
-      album_img.src = `albums/${list[v].album_name}.webp`;
+      album_img.src = `${preloadedImages[v].src}`;
       album_nos.innerHTML = `${list[v].no}.`;
       
       setTimeout(()=>{
