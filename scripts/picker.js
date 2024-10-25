@@ -1,8 +1,15 @@
 export function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
+  let option = JSON.parse(localStorage.getItem('option'));
+  const list = option.list;
+  const images = []
+  const option_type = option.type;
+  for(let i=1;i<option.max+1;i++){
+    images.push(`albums/${option_type}/${i}.webp`);
+  }
+  console.log(images);
 
-const images = ["albums/7.webp", "albums/The Kick Inside.webp", "albums/The Future of What.webp", "albums/Drukqs.webp", "albums/Dummy.webp"];
 const preloadedImages = [];
 
 images.forEach((image) => {
@@ -12,10 +19,9 @@ images.forEach((image) => {
 });
 
 export function renderAlbum(){
-    let option = JSON.parse(localStorage.getItem('option'));
+    
     const max = option.max;
     const min = option.min;
-    const list = option.list;
     const v = localStorage.getItem('v');
     const overview = document.querySelector('.overview');
     const album_nme = document.getElementById("title");
@@ -33,7 +39,7 @@ export function renderAlbum(){
       let intervalId;
       function autoPlay(){
           intervalId = setInterval(function(){
-            pickAlbum(list,randomNumber(0,5));}
+            pickAlbum(list,randomNumber(min,max));}
             ,10);
         }
 
@@ -42,7 +48,7 @@ export function renderAlbum(){
       autoPlay();
       setTimeout(()=>{
         clearInterval(intervalId);
-        pickAlbum(0,5);
+        pickAlbum(list,v);
       },1000);
       
 
