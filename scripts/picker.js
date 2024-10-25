@@ -45,7 +45,7 @@ export function renderAlbum(){
       function pickAlbum(list,v){
       const album_img = document.getElementById("artwork");
       const album_nos = document.getElementById("no");
-      album_img.src = `albums/${list[v].album_name}.jpg`;
+      album_img.src = `albums/${list[v].album_name}.webp`;
       album_nos.innerHTML = `${list[v].no}.`;
       
       setTimeout(()=>{
