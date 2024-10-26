@@ -23,5 +23,8 @@ document.querySelectorAll('.js-album-options').forEach((button)=>{
         localStorage.setItem('v', randomNumber(matchingOption.min,matchingOption.max));
       }
     });
+
+  window.location.href = "randomalbum.html";
+
   });
 });
