@@ -2,9 +2,6 @@ export function renderPopups(){
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.js-modal-links').forEach((modalLink)=>{
       modalLink.addEventListener('click',()=>{
-        localStorage.setItem('oprio','1');
-        let j = localStorage.getItem('oprio');
-        console.log(j);
         const modalType = modalLink.dataset.modalId;
         let modalHtml = ``;
         if(modalType === '1'){

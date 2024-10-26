@@ -26,8 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('v', randomNumber(matchingOption.min,matchingOption.max));
         }
       });
-  
-    window.location.href = "randomalbum.html";
+      let j = localStorage.getItem('option');
+      console.log(j);
+   // window.location.href = "randomalbum.html";
   
     });
   });
