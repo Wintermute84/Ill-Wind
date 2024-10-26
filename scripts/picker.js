@@ -2,7 +2,7 @@ export function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
   let option = JSON.parse(localStorage.getItem('option'));
-  const list = option.list;
+  let list = option.list;
   const images = []
   const option_type = option.type;
   for(let i=1;i<option.max+1;i++){
