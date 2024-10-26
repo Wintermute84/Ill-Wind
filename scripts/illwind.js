@@ -12,20 +12,23 @@ document.querySelector('.js-ill-wind').addEventListener('click',
 
 renderPopups();
 
-document.querySelectorAll('.js-album-options').forEach((button)=>{
-  button.addEventListener('click',()=>{
-    const optionId = button.dataset.optionId;
-    console.log(optionId);
-    let matchingOption;
-    options.forEach((option)=>{
-      if (optionId === option.id){
-        matchingOption = option;
-        localStorage.setItem('option',JSON.stringify(matchingOption));
-        localStorage.setItem('v', randomNumber(matchingOption.min,matchingOption.max));
-      }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.js-album-options').forEach((button)=>{
+    button.addEventListener('click',()=>{
+      const optionId = button.dataset.optionId;
+      console.log(optionId);
+      let matchingOption;
+      options.forEach((option)=>{
+        if (optionId === option.id){
+          matchingOption = option;
+          localStorage.setItem('option',JSON.stringify(matchingOption));
+          localStorage.setItem('v', randomNumber(matchingOption.min,matchingOption.max));
+        }
+      });
+  
+    window.location.href = "randomalbum.html";
+  
     });
-
-  window.location.href = "randomalbum.html";
-
   });
 });
