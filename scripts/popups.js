@@ -4,6 +4,7 @@ export function renderPopups(){
       const modalType = modalLink.dataset.modalId;
       let modalHtml = ``;
       if(modalType === '1'){
+        console.log('dwwwww');
         modalHtml+=`
         <div class="modal-inner">
           <div class="heading">Help</div>
