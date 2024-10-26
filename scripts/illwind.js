@@ -15,6 +15,7 @@ renderPopups();
 document.querySelectorAll('.js-album-options').forEach((button)=>{
   button.addEventListener('click',()=>{
     const optionId = button.dataset.optionId;
+    console.log(optionId);
     let matchingOption;
     options.forEach((option)=>{
       if (optionId === option.id){
