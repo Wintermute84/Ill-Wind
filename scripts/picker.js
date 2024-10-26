@@ -1,7 +1,7 @@
-/*export function randomNumber(min, max) {
+export function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-  let option = JSON.parse(localStorage.getItem('option'));
+/*  let option = JSON.parse(localStorage.getItem('option'));
   console.log(option);
   let list = option.list;
   const images = []
