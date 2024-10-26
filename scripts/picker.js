@@ -3,7 +3,7 @@ export function randomNumber(min, max) {
 }
   let option = JSON.parse(localStorage.getItem('option'));
   console.log(option);
-  /*let list = option.list;
+  let list = option.list;
   const images = []
   const option_type = option.type;
   for(let i=1;i<option.max+1;i++){
@@ -71,4 +71,4 @@ export function renderAlbum(){
       
       }
 
-    }*/
+    }
