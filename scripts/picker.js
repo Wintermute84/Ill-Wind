@@ -1,4 +1,4 @@
-export function randomNumber(min, max) {
+/*export function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
   let option = JSON.parse(localStorage.getItem('option'));
@@ -71,4 +71,4 @@ export function renderAlbum(){
       
       }
 
-    }
+    }*/
