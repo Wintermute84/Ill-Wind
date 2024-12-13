@@ -1,8 +1,8 @@
 export const options = [{
   id:"1",
   type:'classic1001',
-  min:0,
-  max:20,
+  min:1,
+  max:1002,
   list: [
     {no:420,artist:'Joy Division',album_name:'Unknown Pleasures',year:1979,genre:'Post Punk',length:'40 mins',link:'https://open.spotify.com/album/5Dgqy4bBg09Rdw7CQM545s?si=W8hGMwe-T364gCp0R6B_rw',tracks:10,review:`<p>Unknown Pleasures is the debut studio album by the English rock band Joy Division, released on 15 June 1979, by Factory Records. The album was recorded and mixed over three successive weekends at Stockport's Strawberry Studios in April 1979, with producer Martin Hannett contributing a number of unconventional recording techniques to the group's sound.</p>
       <p>The cover artwork was designed by artist Peter Saville, using a data plot of signals from a radio pulsar. It is the only Joy Division album released during lead singer Ian Curtis's lifetime</p>
@@ -90,8 +90,8 @@ export const options = [{
   ]
 },{id:"2",
   type:'creators1001',
-  min:0,
-  max:16,
+  min:1,
+  max:1002,
   list:[
     {no:120,artist:'Weyes Blood',album_name:'Titanic Rising',year:2019,genre:'Chamber Pop',length:'42 mins',tracks:10,link:'https://open.spotify.com/album/0Cuqhgy8vm96JEkBY3polk?si=3f6cc33121914ebc',review:`<p>Titanic Rising is the fourth studio album by American singer-songwriter and musician Weyes Blood, released on April 5, 2019 by Sub Pop.</p><p>Produced by the artist along with Jonathan Rado, it is influenced by 1970s FM radio. Its lyrical themes address romantic pursuits, climate change, and references to the Titanic.</p>
   <p>The album is named after the RMS Titanic and the 1997 film based on the ship's sinking, which had a profound impact on Mering when she was younger.</p>`}
@@ -164,8 +164,8 @@ export const options = [{
 },{
   id:"3",
   type:'essentials',
-  min:0,
-  max:10,
+  min:1,
+  max:61,
   list:[{no:1,artist:'Brian Eno',album_name:'Music for Airports',year:1978,genre:'Ambient',length:'1 hrs',tracks:4,link:'https://open.spotify.com/album/063f8Ej8rLVTz9KkjQKEMa?si=db9bc6b8b9b945b0',review:`<p><strong>Music for Airports</strong> is the first album in Brian Eno's pioneering Ambient series, released in 1978. This groundbreaking work is considered one of the first albums to define the ambient genre, focusing on creating a soothing and contemplative atmosphere rather than traditional melodies and rhythms.</p>
     <p>The album consists of four tracks, each designed to be looped and layered, creating a continuous, calming soundscape. Eno's use of minimalism, soft piano notes, and subtle synthesizer tones in pieces like "1/1" and "2/1" contributes to the serene and meditative quality of the music.</p>
     <p><em>Music for Airports</em> was conceived to transform the typically stressful airport environment into a more peaceful and introspective space. It has since become a landmark in ambient music, influencing countless artists and redefining the possibilities of sound in modern music.</p>`
