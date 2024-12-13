@@ -4,7 +4,7 @@ export function randomNumber(min, max) {
   let option = JSON.parse(localStorage.getItem('option'))||{};
   const images = []
   const option_type = option.type;
-  for(let i=1;i<11;i++){
+  for(let i=1;i<21;i++){
     images.push(`albums/${option_type}/${i}.webp`);
   }
 
@@ -21,8 +21,8 @@ export async function renderAlbum(){
     const max = option.max;
     const min = option.min;
     const v = JSON.parse(localStorage.getItem('details'));
-    const img = new Image();
-    img.src = v.img;
+    const albimg = new Image();
+    albimg.src = v.img;
     const album_nme = document.getElementById("title");
     const album_artist = document.getElementById("artist");
     const album_infoss = document.getElementById("oinfo");
@@ -37,7 +37,7 @@ export async function renderAlbum(){
       let intervalId;
       function autoPlay(){
           intervalId = setInterval(function(){
-            pickAlbum(randomNumber(0,10));}
+            pickAlbum(randomNumber(1,21));}
             ,10);
         }
 
@@ -48,7 +48,7 @@ export async function renderAlbum(){
         clearInterval(intervalId);
         const album_img = document.getElementById("artwork");
         const album_nos = document.getElementById("no");
-        album_img.src = img.src;
+        album_img.src = albimg.src;
         album_nos.innerHTML = `${v.no}.`;
       },1000);
       
@@ -86,8 +86,6 @@ export async function renderAlbum(){
       } catch (error) {
           console.error('Error fetching album:', error);
       }
-      let sss = localStorage.getItem('errors');
-        console.log(sss);
     }
     
     
