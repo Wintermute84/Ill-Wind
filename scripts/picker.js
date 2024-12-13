@@ -59,10 +59,9 @@ export function randomNumber(min, max) {
   let list = option.list;
   const images = []
   const option_type = option.type;
-  for(let i=1;i<option.max+1;i++){
+  for(let i=1;i<11;i++){
     images.push(`albums/${option_type}/${i}.webp`);
   }
-  console.log(images);
 
 const preloadedImages = [];
 
@@ -72,28 +71,29 @@ images.forEach((image) => {
   preloadedImages.push(img);
 });
 
-export function renderAlbum(){
-    
+export async function renderAlbum(){
+    let option = JSON.parse(localStorage.getItem('option'));
     const max = option.max;
     const min = option.min;
-    const v = localStorage.getItem('v');
-    const overview = document.querySelector('.overview');
+    const list = option.list;
+    const v = JSON.parse(localStorage.getItem('details'));
+    const img = new Image();
+    img.src = v.img;
     const album_nme = document.getElementById("title");
     const album_artist = document.getElementById("artist");
     const album_infoss = document.getElementById("oinfo");
-    album_nme.innerText = list[v].album_name;
-    album_artist.innerText = list[v].artist;
-    album_infoss.innerText = `${list[v].year} ‧ ${list[v].genre} ‧ ${list[v].tracks} songs ‧ ${list[v].length}`
-    overview.innerHTML = list[v].review;
+    album_nme.innerText = v.album_name;
+    album_artist.innerText = v.artist;
+    album_infoss.innerText = `${v.year} ‧ ${v.tracks} tracks ‧ ${v.length}`;
 
     document.querySelectorAll('.js-album-link').forEach(function(anchor) {
-      anchor.href = list[v].link;
+      anchor.href = v.link;
     });
     console.log(localStorage.getItem('v'));
       let intervalId;
       function autoPlay(){
           intervalId = setInterval(function(){
-            pickAlbum(list,randomNumber(min,max));}
+            pickAlbum(list,randomNumber(0,10));}
             ,10);
         }
 
@@ -102,7 +102,10 @@ export function renderAlbum(){
       autoPlay();
       setTimeout(()=>{
         clearInterval(intervalId);
-        pickAlbum(list,v);
+        const album_img = document.getElementById("artwork");
+        const album_nos = document.getElementById("no");
+        album_img.src = img.src;
+        album_nos.innerHTML = `${v.no}.`;
       },1000);
       
 
@@ -124,4 +127,78 @@ export function renderAlbum(){
       
       }
 
+    }
+
+    export async function fetchAlbum(album_id,album_type) {
+
+      try {
+        const albumss = await albumDetails(album_id,album_type);
+        console.log(albumss);
+        const{album_name,artist,year,spotifyid,id} = albumss.data;
+        console.log(album_name,artist,year,spotifyid);
+        const response = await fetchAlbums(spotifyid,album_name,artist,year,id);
+        const albumData = response;
+        return albumData;
+      } catch (error) {
+          console.error('Error fetching album:', error);
+      }
+      let sss = localStorage.getItem('errors');
+        console.log(sss);
+    }
+    
+    
+    
+    
+    
+    //fetchAlbum();
+    
+    
+    
+    
+    // Usage example
+    export async function albumDetails(id,option){
+        try {
+            const response = await fetch(`https://ill-wind-backend.onrender.com/getalbum?id=${id}&option=${option}`);
+            if (!response.ok) {
+                const errorText = await response.text(); // Get the raw text for debugging
+                console.error('Error fetching album:', errorText);
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const albumData = await response.json();
+            console.log(albumData);
+            return albumData;
+        } catch (error) {
+            console.error('Error fetching album:', error);
+        };
+      }
+    
+    
+     
+    
+    
+    export async function fetchAlbums(albumId,album_name,artist,year,id) {
+      try {
+          const response = await fetch(`https://ill-wind-backend.onrender.com/api/album?id=${albumId}`);
+          const albumData = await response.json();
+          console.log(albumData);
+          const tracks = albumData.tracks.items; // Get the tracks from the album
+          const totalDurationMs = tracks.reduce((total, track) => total + track.duration_ms, 0); // Sum durations
+    
+            // Convert milliseconds to minutes and seconds
+            const hours = Math.floor((totalDurationMs / 1000) / 3600);
+            const minutes = Math.floor(((totalDurationMs / 1000) % 3600) / 60);
+            let length = '';
+            if(hours>0){
+              length+=`${hours} hrs ${minutes} mins`;
+            }
+            else{
+              length=`${minutes} mins`;
+            }
+            const obj={albumData:albumData,length:length,album_name:album_name,artist:artist,year:year,id:id};
+            //console.log(obj);
+            return obj;
+          // Process the album data as needed
+      } catch (error) {
+          console.error('Error fetching album:', error);
+      }
     }

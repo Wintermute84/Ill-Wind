@@ -1,6 +1,6 @@
 export const options = [{
   id:"1",
-  type:'classic',
+  type:'classic1001',
   min:0,
   max:20,
   list: [
@@ -89,7 +89,7 @@ export const options = [{
     }                                                                                                                                                                                                               
   ]
 },{id:"2",
-  type:'creator',
+  type:'creators1001',
   min:0,
   max:16,
   list:[
@@ -163,7 +163,7 @@ export const options = [{
 ]
 },{
   id:"3",
-  type:'ambient',
+  type:'essentials',
   min:0,
   max:10,
   list:[{no:1,artist:'Brian Eno',album_name:'Music for Airports',year:1978,genre:'Ambient',length:'1 hrs',tracks:4,link:'https://open.spotify.com/album/063f8Ej8rLVTz9KkjQKEMa?si=db9bc6b8b9b945b0',review:`<p><strong>Music for Airports</strong> is the first album in Brian Eno's pioneering Ambient series, released in 1978. This groundbreaking work is considered one of the first albums to define the ambient genre, focusing on creating a soothing and contemplative atmosphere rather than traditional melodies and rhythms.</p>
