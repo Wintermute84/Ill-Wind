@@ -37,7 +37,7 @@ export async function renderAlbum(){
       let intervalId;
       function autoPlay(){
           intervalId = setInterval(function(){
-            pickAlbum(randomNumber(1,21));}
+            pickAlbum(randomNumber(0,20));}
             ,10);
         }
 
