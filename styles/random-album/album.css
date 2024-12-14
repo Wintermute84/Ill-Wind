@@ -66,10 +66,6 @@
 
 .album-title{
   font-size: 30px;
-  width:100%;
-  white-space: nowrap;  
-  overflow: hidden; 
-  text-overflow: ellipsis;  
 }
 
 .album-artist{
@@ -158,6 +154,14 @@ h2{
   pointer-events: initial;
 }
 
+@media(width>900px){
+  .album-title,.album-artist{
+    width:100%;
+    white-space: nowrap;  
+    overflow: hidden; 
+    text-overflow: ellipsis;  
+  }
+}
 
 @media(width<900px){
   .album-info{
@@ -167,6 +171,7 @@ h2{
   
   .album-details{
     margin-bottom: 15px;
+    margin-left: 4%;
   }
 
   .album-image{

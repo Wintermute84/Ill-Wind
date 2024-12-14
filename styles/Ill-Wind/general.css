@@ -23,7 +23,7 @@ body{
 .container{
   display: flex;
   flex-direction: row;
-  margin-top: 50px;
+  margin-top: 3%;
   align-content: center;
   justify-content:center;
   user-select: none;
@@ -50,11 +50,6 @@ body{
 .option-button:hover{
   background-color: gray;
   border-color: white;
-  margin-top:20px;
-  margin-bottom:30px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  
 }
 
 .album-thumbnail{
