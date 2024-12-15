@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const album_type = matchingOption.type;
       let v = randomNumber(matchingOption.min,matchingOption.max);
       const data = await fetchAlbum(v,album_type);
-      console.log(data);
       const details = {
         album_name:data.album_name,
         artist:data.artist,
