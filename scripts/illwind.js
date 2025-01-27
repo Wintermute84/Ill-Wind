@@ -16,12 +16,15 @@ renderPopups();
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.js-album-options').forEach((button)=>{
     button.addEventListener('click',async ()=>{
+      document.getElementById
       const optionId = button.dataset.optionId;
       let matchingOption;
       options.forEach((option)=>{
         if (optionId === option.id){
           matchingOption = option;
           localStorage.setItem('option',JSON.stringify(matchingOption));    
+          const id = button.getAttribute('id')
+          document.getElementById(id).innerText = 'Loading...'
         }
       });
       const album_type = matchingOption.type;
