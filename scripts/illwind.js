@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
       let matchingOption;
       options.forEach((option)=>{
         if (optionId === option.id){
+          const id = button.getAttribute('id')
+          document.getElementById(id).innerText = 'Loading...'
           matchingOption = option;
           localStorage.setItem('option',JSON.stringify(matchingOption));    
         }
