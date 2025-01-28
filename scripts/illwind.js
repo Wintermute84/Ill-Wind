@@ -21,7 +21,23 @@ document.addEventListener('DOMContentLoaded', () => {
       options.forEach((option)=>{
         if (optionId === option.id){
           const id = button.getAttribute('id')
-          document.getElementById(id).innerText = 'Loading...'
+          let flag = true;
+          const name = option.name;
+          setInterval(()=>{      
+            if(flag){
+              document.getElementById(id).innerText = 'Loading...';
+              document.getElementById(id).classList.remove("not-loading")
+              document.getElementById(id).classList.add("loading")
+            }
+            else{
+              document.getElementById(id).innerText = name;
+              document.getElementById(id).classList.remove("loading")
+              document.getElementById(id).classList.add("not-loading")
+
+            }
+            flag = !flag
+          },1000)
+          
           matchingOption = option;
           localStorage.setItem('option',JSON.stringify(matchingOption));    
         }
