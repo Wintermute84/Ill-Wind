@@ -3,32 +3,42 @@ import { renderPopups } from "./popups.js";
 import { randomNumber, fetchAlbum } from "./picker.js";
 import { options } from "./lists.js";
 
-let count=0;
-document.querySelector('.js-ill-wind').addEventListener('click',
-  ()=>{
+let count=0;    //function for the ill-wind redirect
+document.querySelector('.js-ill-wind').addEventListener('click', ()=>{
     count = illWind(count);
   }
 );
 
 renderPopups();
 
+let currentInterval, id, matchingOption=null
 
 document.addEventListener('DOMContentLoaded', () => {
+
   document.querySelectorAll('.js-album-options').forEach((button)=>{
     button.addEventListener('click',async ()=>{
       const optionId = button.dataset.optionId;
-      let matchingOption;
-      options.forEach((option)=>{
+      
+      if (currentInterval) {
+        clearInterval(currentInterval);
+        const previousOption = document.getElementById(id);
+        previousOption.textContent = matchingOption.name;
+      }
+
+      options.forEach((option)=>{   //set option id and add loading message
         if (optionId === option.id){
-          const id = button.getAttribute('id')
-          let flag = true;
+          
+          id = button.getAttribute('id')
           const name = option.name;
-          setInterval(()=>{      
+          let flag = true;
+          
+          currentInterval = setInterval(()=>{  
             if(flag){
               document.getElementById(id).innerText = 'Loading...';
               document.getElementById(id).classList.remove("not-loading")
               document.getElementById(id).classList.add("loading")
             }
+
             else{
               document.getElementById(id).innerText = name;
               document.getElementById(id).classList.remove("loading")
@@ -42,10 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('option',JSON.stringify(matchingOption));    
         }
       });
+
       const album_type = matchingOption.type;
       let v = randomNumber(matchingOption.min,matchingOption.max);
       const data = await fetchAlbum(v,album_type);
-      const details = {
+      const details = {     //create object for the album details
         album_name:data.album_name,
         artist:data.artist,
         year:data.year,
@@ -55,8 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         img:data.albumData.images[0]?.url || data.albumData.images[1]?.url,
         no:data.id
     }
-    localStorage.setItem('details', JSON.stringify(details));
+
+    localStorage.setItem('details', JSON.stringify(details));     //store the object in local storage
     window.location.href = "randomalbum.html";
     });
+
   });
 });

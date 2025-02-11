@@ -1,25 +1,22 @@
 export function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-  let option = JSON.parse(localStorage.getItem('option'))||{};
+  let option = JSON.parse(localStorage.getItem('option'))||{};    //get details from local storage
   const images = []
   const option_type = option.type;
-  for(let i=1;i<21;i++){
+  for(let i=1;i<21;i++){    //preload images to improve load time
     images.push(`albums/${option_type}/${i}.webp`);
   }
 
 const preloadedImages = [];
 
-images.forEach((image) => {
+images.forEach((image) => { 
   const img = new Image();
   img.src = image;
   preloadedImages.push(img);
 });
 
-export async function renderAlbum(){
-    let option = JSON.parse(localStorage.getItem('option'));
-    const max = option.max;
-    const min = option.min;
+export async function renderAlbum(){      //render the album details to the dom
     const v = JSON.parse(localStorage.getItem('details'));
     const albimg = new Image();
     albimg.src = v.img;
@@ -33,15 +30,18 @@ export async function renderAlbum(){
     document.querySelectorAll('.js-album-link').forEach(function(anchor) {
       anchor.href = v.link;
     });
+
     let intervalId;
-    function autoPlay(){
+
+    function autoPlay(){  //album flickering effect thingy
         intervalId = setInterval(function(){
           pickAlbum(randomNumber(0,20));}
           ,10);
-      }
+    }
+
     autoPlay();
 
-    setTimeout(()=>{
+    setTimeout(()=>{  //clear the album effect after 1s
       clearInterval(intervalId);
       const album_img = document.getElementById("artwork");
       const album_nos = document.getElementById("no");
@@ -49,22 +49,22 @@ export async function renderAlbum(){
       album_nos.innerHTML = `${v.no}.`;
     },1000);
       
-    function pickAlbum(v){
-    const album_img = document.getElementById("artwork");
-    const album_nos = document.getElementById("no");
-    album_img.src = `${preloadedImages[v].src}`;
-    album_nos.innerHTML = `${randomNumber(1,1000)}.`;
-    
-    setTimeout(()=>{
-      document.querySelectorAll('.album-other-infos').forEach((item)=>{
-        item.classList.add('after');
-      });
-      document.querySelector('.links-container').classList.add('after');
+    function pickAlbum(v){  //func for picking albums...needed for the flickering effect thingy
+      const album_img = document.getElementById("artwork");
+      const album_nos = document.getElementById("no");
+      album_img.src = `${preloadedImages[v].src}`;
+      album_nos.innerHTML = `${randomNumber(1,1000)}.`;
+      
+      setTimeout(()=>{
+        document.querySelectorAll('.album-other-infos').forEach((item)=>{
+          item.classList.add('after');
+        });
+        document.querySelector('.links-container').classList.add('after');  
       },1200);
     }
   }
 
-export async function fetchAlbum(album_id,album_type) {
+export async function fetchAlbum(album_id,album_type) { //fetch the stupid album
   try {
     const albumss = await albumDetails(album_id,album_type);
     const{album_name,artist,year,spotifyid,id} = albumss.data;
@@ -77,11 +77,11 @@ export async function fetchAlbum(album_id,album_type) {
 }
     
     
-export async function albumDetails(id,option){
+export async function albumDetails(id,option){  //get teh response from my backend
   try {
       const response = await fetch(`https://ill-wind-backend.onrender.com/getalbum?id=${id}&option=${option}`);
       if (!response.ok) {
-          const errorText = await response.text(); // Get the raw text for debugging
+          const errorText = await response.text(); 
           console.error('Error fetching album:', errorText);
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -105,14 +105,18 @@ export async function fetchAlbums(albumId,album_name,artist,year,id) {
       const hours = Math.floor((totalDurationMs / 1000) / 3600);
       const minutes = Math.floor(((totalDurationMs / 1000) % 3600) / 60);
       let length = '';
+      
       if(hours>0){
         length+=`${hours} hrs ${minutes} mins`;
       }
+
       else{
         length=`${minutes} mins`;
       }
+
       const obj={albumData:albumData,length:length,album_name:album_name,artist:artist,year:year,id:id};
       return obj;
+      
   } catch (error) {
       console.error('Error fetching album:', error);
   }
