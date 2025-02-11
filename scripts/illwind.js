@@ -47,9 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             flag = !flag
           },1000)
-          clearInterval(id)
           matchingOption = option;
-          document.getElementById(id).innerText = matchingOption.name;
           localStorage.setItem('option',JSON.stringify(matchingOption));    
         }
       });
@@ -69,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     clearInterval(currentInterval);
+    document.getElementById(id).innerText = matchingOption.name;
     localStorage.setItem('details', JSON.stringify(details));     //store the object in local storage
     window.location.href = "randomalbum.html";
     });
