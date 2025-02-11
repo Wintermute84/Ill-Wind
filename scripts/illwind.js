@@ -12,6 +12,7 @@ document.querySelector('.js-ill-wind').addEventListener('click', ()=>{
 renderPopups();
 
 let currentInterval, id, matchingOption=null
+let flag = true
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -30,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
           
           id = button.getAttribute('id')
           const name = option.name;
-          let flag = true;
           
           currentInterval = setInterval(()=>{  
             if(flag){
@@ -67,7 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     clearInterval(currentInterval);
-    document.getElementById(id).innerText = matchingOption.name;
+    if(!flag){
+      document.getElementById(id).innerText = matchingOption.name;
+      document.getElementById(id).classList.remove("loading")
+    }
+    
     localStorage.setItem('details', JSON.stringify(details));     //store the object in local storage
     window.location.href = "randomalbum.html";
     });
