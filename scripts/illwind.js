@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
           },1000)
           
           matchingOption = option;
+          document.getElementById(id).innerText = matchingOption.name;
           localStorage.setItem('option',JSON.stringify(matchingOption));    
         }
       });
