@@ -50,8 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
           
           matchingOption = option;
           localStorage.setItem('option',JSON.stringify(matchingOption));    
-          clearInterval(currentInterval);
-
         }
       });
 
@@ -69,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         no:data.id
     }
 
+    clearInterval(currentInterval);
     localStorage.setItem('details', JSON.stringify(details));     //store the object in local storage
     window.location.href = "randomalbum.html";
     });
