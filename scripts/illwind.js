@@ -50,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
           
           matchingOption = option;
           localStorage.setItem('option',JSON.stringify(matchingOption));    
+          clearInterval(currentInterval);
+
         }
       });
 
