@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             flag = !flag
           },1000)
-          
+          clearInterval(id)
           matchingOption = option;
           document.getElementById(id).innerText = matchingOption.name;
           localStorage.setItem('option',JSON.stringify(matchingOption));    
