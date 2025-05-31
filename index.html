@@ -17,11 +17,19 @@
   <body >
     <header class="header">
       <div class="div1" style="padding-left: 15px;">
-        <p class="album-option-text">
-          <a href="https://github.com/Wintermute84/Ill-Wind" class="link" target="_blank">
-              1001 Albums Project
-          </a>
-        </p>
+        <div class="menu-div">
+          <img class="menu-icon js-menu-icon" src="./assets/menu.png" id="menu">
+          <div class="drop-down"  id="js-drop-down-menu">
+            <p class="album-option-text">
+              <a href="https://github.com/Wintermute84/Ill-Wind" class="link" target="_blank">
+                  1001 Albums Project
+              </a>
+            </p>
+            <p class="js-history-option">History</p>
+          </div>
+          <div class="history-div js-history-div">
+          </div>
+        </div>
       </div>
       <div class="div2">
       <div class="home-link js-ill-wind">ill Wind</div>
@@ -43,7 +51,7 @@
       <div class="option">
         <img class="album-image album-thumbnail" alt="category-image" src="thumbnails/Brian Eno - Ambient 1 (Music for Airports).jpg">
         <button class="option-button js-album-options" data-option-id="3"  id="option-3">
-          Ambient Essentials
+          Essentials
         </button>
       </div>
 

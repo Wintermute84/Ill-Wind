@@ -63,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
         length:data.length,
         link:data.albumData.external_urls.spotify,
         img:data.albumData.images[0]?.url || data.albumData.images[1]?.url,
-        no:data.id
+        no:data.id,
+        list:matchingOption.name
     }
 
     clearInterval(currentInterval);
@@ -71,6 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById(id).innerText = matchingOption.name;
       document.getElementById(id).classList.remove("loading")
     }
+
+    let history = JSON.parse(localStorage.getItem('history')) || [] //history array in locstorage to keep track of recent picks
+    history.push(details)
+    if (history.length > 10) {  //lenght of array limited to 10
+      history.shift(); //delete oldest pick
+    }
+    localStorage.setItem('history',JSON.stringify(history))
     
     localStorage.setItem('details', JSON.stringify(details));     //store the object in local storage
     window.location.href = "randomalbum.html";

@@ -42,9 +42,66 @@ export function renderPopups(){
       });
       });   
     });
-});}
-  
-  
+  });
+}
+
+
+document.querySelector('.js-menu-icon').addEventListener('click',()=>{
+
+  let dropdown = document.getElementById('js-drop-down-menu');
+  let hidden = getComputedStyle(dropdown).visibility === 'hidden';
+
+  if(hidden){
+    dropdown.style.visibility = 'visible'
+  }
+  else{
+    dropdown.style.visibility = 'hidden'
+  }
+
+  let history = JSON.parse(localStorage.getItem('history')) || []
+  if(history.length == 0){
+    document.querySelector('.js-history-div').innerText = `You seem to have no prior history!`
+  }
+  else{
+    let html = ``
+    history.forEach((item)=>{   //reloads history whenever the dropdown is clicked
+    html += `<div class="album-history-div">
+                <div class="album-image-container">
+                  <img class="album-history-img" src="${item.img}">
+                  <a href="${item.link}" target = "_blank"><img src="./assets/play.png" class="play-icon"></a>
+                </div>
+                <div class="album-history-info-div">
+                  <p class="album-history-info">${item.list}</p>
+                  <p class="album-history-info">${item.artist}</p>
+                  <p class="album-history-info">${item.album_name}</p>
+                </div>
+              </div>`
+    })
+    document.querySelector('.js-history-div').innerHTML = html
+    }
+  })
+
+const header = document.querySelector('header');
+let dropdown = document.getElementById('js-drop-down-menu');
+let history = document.querySelector('.js-history-div');
+
+document.querySelector('.js-history-option').addEventListener('click',()=>{
+history.style.visibility = 'visible'
+dropdown.style.visibility = 'hidden';
+})
+
+document.addEventListener('click', (e) => { //make the drop downs close when any other screen area is clicked upon... it works somehow :/
+if (!header.contains(e.target)){
+  if (getComputedStyle(dropdown).visibility === 'visible') {
+    dropdown.style.visibility = 'hidden';
+  }
+  if(getComputedStyle(history).visibility === 'visible'){
+    history.style.visibility = 'hidden';
+  }
+}
+});
+
+
 
 
 

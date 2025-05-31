@@ -14,5 +14,5 @@ export const options = [{
   type:'essentials',
   min:1,
   max:61,
-  name:'Ambient Essentials'
+  name:'Essentials'
 }];

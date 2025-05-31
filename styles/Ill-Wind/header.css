@@ -28,12 +28,49 @@
   flex-shrink: 0;
 }
 
-.div1:hover,.home-link:hover, .link:hover{
+.home-link:hover, .link:hover{
   color:rgb(123, 128, 128);
 }
 
 .link{
   transition: color .3s;     
+}
+
+.div1{
+  height: 100%;
+  cursor: default;
+}
+.menu-icon{
+  height: 100%;
+  cursor: pointer;
+}
+
+.menu-div{
+  position: absolute;
+  height: 100%;
+}
+
+.drop-down{
+  position: relative;
+  top:10px;
+  background: linear-gradient(90deg, rgba(103,102,102,1) 16%, rgba(71,70,70,1) 36%, rgba(30,30,31,1) 75%);
+  padding:10px;
+  border:solid 3px white;
+  border-radius: 10px;
+  visibility: hidden;
+  width: fit-content;
+  cursor: default;
+}
+
+.drop-down > p{
+  margin: 0;
+  transition:color .3s;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.drop-down > p:hover{
+  color:rgb(123, 128, 128);
 }
 
 @media(width<600px){

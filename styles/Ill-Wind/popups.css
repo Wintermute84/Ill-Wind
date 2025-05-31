@@ -72,6 +72,70 @@ a{
   text-decoration: none;
 }
 
+.album-image-container{
+  position: relative; 
+  width: fit-content; 
+  display: inline-block;
+}
+
+.history-div{
+  max-height:400px;
+  background: linear-gradient(90deg, rgba(103,102,102,1) 16%, rgba(71,70,70,1) 36%, rgba(30,30,31,1) 75%);
+  border-radius: 10px;
+  border:2px solid white;
+  overflow-y: auto;
+  cursor: default;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-history-div{
+  display: flex;
+  margin: 7px;
+  justify-content: start;
+}
+
+.album-history-img{
+  height: 70px;
+  margin-right: 6px;
+  display: block;
+}
+
+.album-history-info-div{
+  width: 100%;
+}
+
+.album-history-info-div > p{
+  margin: 0;
+  font-family: 'Poppins';
+  font-size: 1rem;
+}
+
+.play-icon{
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
+  height: 20px;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 30px;
+  cursor: pointer; 
+}
+
+
+.album-image-container:hover .play-icon{
+  opacity: 1;
+}
+
+.album-history-info{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
+}
+
 @media (width<1180px){
   .modal-inner{
     background-color: #240b57;
