@@ -11,7 +11,7 @@ export const options = [{
   name:'Creators 1001'
 },{
   id:"3",
-  type:'essentials',
+  type:'shoegaze_essentials',
   min:1,
   max:61,
   name:'Essentials'
