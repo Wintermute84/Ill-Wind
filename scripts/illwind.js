@@ -9,6 +9,8 @@ document.querySelector('.js-ill-wind').addEventListener('click', ()=>{
   }
 );
 
+ fetch("https://ill-wind-backend.onrender.com/ping").catch(err => console.error(" warm-up failure:", err));
+
 renderPopups();
 
 let currentInterval, id, matchingOption=null

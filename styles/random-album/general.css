@@ -6,10 +6,10 @@ body{
   flex-direction: column;
   font-family: Poppins;
   color: white;
+  min-height: 100vh;
 }
 
 h1{
-  margin-top: 100px;
   font-family: tiny5;
   margin-bottom: 0;
 }
@@ -17,4 +17,14 @@ h1{
 a{
   text-decoration: initial;
   color: inherit;
+}
+
+main{
+  width:95%;
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  gap:20px
 }
